@@ -10,12 +10,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-<!---css-->
+    <!---css-->
     <link rel="stylesheet" href="style.css">
 
 </head>
 
-<body>
+<body id="main-body">
     <!----navbar--->
     <nav class="navbar navbar-expand-lg bg-success" data-bs-theme="dark">
         <div class="container-fluid">
@@ -60,16 +60,21 @@
     <!---header_awal--->
     <header class="hero-section d-flex align-items-center text-white">
         <div class="container text-center">
-            <h1 class="display-4 fw-bold mb-3">selamat datang di media nutri herbal</h1>
-            <p class="lead mb-4">mari cegah hipertensi, sedari dini.</p>
-            <a href="#jelajahi" class="btn btn-primary btn-lg me-2">Jelajahi</a>
-            <div class="col-lg-12 offset-lg-0 col-md-12">
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-            </div>
+            <section class="hero-slider">
+                <div class="slide active" style="background-image: url('rumahsakitjpg.jpg');"></div>
+                <div class="slide" style="background-image: url('tensi.jpg');"></div>
+                <div class="slide" style="background-image: url('herbal.jpg');"></div>
+                <div class="slide" style="background-image: url('sepiring\ sayur.jpg');"></div>
+
+                <div class="overlay">
+                    <h1>Selamat datang di <strong>media Nutri Herbal</strong></h1>
+                    <p>mari cegah hipertensi, sedari dini, karena sehat mulai dari diri sendiri.</p>
+                    <a href="vid.html" class="cta-button" id="btn-jelajahi">Jelajahi</a>
+
+                </div>
+            </section>
+            </button>
+        </div>
         </div>
         </div>
         </div>
@@ -77,9 +82,55 @@
     <main class="container">
         <!-- ini js dari botstrap -->
     </main>
+
+    <!-------semua file javascripst ada disini------->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
         crossorigin="anonymous"></script>
+    <script>
+        // Menghapus dan menambah class active saat menu navbar diklik//
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                navLinks.forEach(nav => nav.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+
+    <!---skrip untuk gambar slide-->
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll(".slide");
+
+        setInterval(() => {
+            slides[currentSlide].classList.remove("active");
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add("active");
+        }, 5000); // ganti gambar setiap 5 detik
+    </script>
+
+    <script>
+        document.getElementById("btn-jelajahi").addEventListener("click", function (e) {
+            e.preventDefault(); // Cegah langsung pindah halaman
+
+            const body = document.getElementById("main-body");
+            body.classList.add("fade-out");
+
+            setTimeout(function () {
+                window.location.href = "vid.html"; // Ganti ke halaman video edukasi
+            }, 600); // Waktu harus sama dengan di CSS
+        });
+    </script>
+
+    <script>let currentSlide = 0;
+        const slides = document.querySelectorAll(".slide");
+
+        setInterval(() => {
+            slides[currentSlide].classList.remove("active");
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add("active");
+        }, 5000);</script>
 
 </body>
 
