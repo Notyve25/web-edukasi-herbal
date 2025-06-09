@@ -10,12 +10,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <!---navbar-->
     <nav class="navbar navbar-expand-lg bg-success" data-bs-theme="dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><i class="fa-solid fa-chart-simple"></i> INFOGRAFIS</a>
+            <a class="navbar-brand" href="#"><i class="fa-solid fa-chart-line"></i> Tingkat Kejadian Hipertensi</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -23,12 +25,16 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html"><i
-                                class="fa-solid fa-house"></i> Beranda</a>
+                    <li>
+                        <a class="nav-link" href="awal.html"> <i class="fa-solid fa-house"></i> Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa-solid fa-film"></i> Video edukasi</a>
+                        <a class="nav-link active" aria-current="page" href="index.html"> <i
+                                class="fa-solid fa-circle-info"></i>
+                            <strong>Informasi</strong> </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="vid.html"> <i class="fa-solid fa-video"></i> Video edukasi</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -36,7 +42,6 @@
                             <i class="fa-solid fa-gears"></i> Pilihan
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="table.html">Tabel</a></li>
                             <li><a class="dropdown-item" href="grafik.html">grafik</a></li>
                             <li>
                                 <hr class="dropdown-divider">
@@ -47,7 +52,6 @@
                     <li class="nav-item">
                     </li>
                 </ul>
-
             </div>
         </div>
     </nav>
@@ -79,7 +83,8 @@
 
             <p>
                 <i>
-                    sumber data: <a href="https://yogyakarta.bps.go.id/" target="_blank" rel="noopener noreferrer">https://yogyakarta.bps.go.id/</a>
+                    sumber data: <a href="https://yogyakarta.bps.go.id/" target="_blank"
+                        rel="noopener noreferrer">https://yogyakarta.bps.go.id/</a>
                 </i>
             </p>
     </main>
@@ -209,7 +214,7 @@
                         width: 350
                     },
                     legend: {
-                        position: 'bottom' 
+                        position: 'bottom'
                     }
                 }
             }]
