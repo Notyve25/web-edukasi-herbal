@@ -57,11 +57,12 @@
             </div>
         </div>
     </nav>
+
     <!---header_awal--->
     <header class="hero-section d-flex align-items-center text-white">
         <div class="container text-center">
             <section class="hero-slider">
-                <div class="slide active" style="background-image: url('rumahsakitjpg.jpg');"></div>
+                <div class="slide active" style="background-image: url('air-jahe.jpeg');"></div>
                 <div class="slide" style="background-image: url('tensi.jpg');"></div>
                 <div class="slide" style="background-image: url('herbal.jpg');"></div>
                 <div class="slide" style="background-image: url('sepiring\ sayur.jpg');"></div>
@@ -69,8 +70,8 @@
                 <div class="overlay">
                     <h1>Selamat datang di <strong>media Nutri Herbal</strong></h1>
                     <p>mari cegah hipertensi, sedari dini, karena sehat mulai dari diri sendiri.</p>
-                    <a href="vid.html" class="cta-button" id="btn-jelajahi">Jelajahi video</a>
-                    <a href="index.html" class="cta-button" id="btn-jelajahi">Jelajahi Informasi</a>
+                    <a href="vid.html" class="cta-button" id="btn-jelajahi-video">Jelajahi video</a>
+                    <a href="index.html" class="cta-button" id="btn-jelajahi-informasi">Jelajahi Informasi</a>
                 </div>
             </section>
             </button>
@@ -79,11 +80,13 @@
         </div>
         </div>
     </header>
-    <main class="container">
-        <!-- ini js dari botstrap -->
-    </main>
 
+    <!---nambahin intitusi terkait--->
+    belum ada    <main class="container">
+        
+    </main>
     <!-------semua file javascripst ada disini------->
+    <!-- ini js dari botstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
         crossorigin="anonymous"></script>
@@ -111,8 +114,10 @@
         }, 5000); // ganti gambar setiap 5 detik
     </script>
 
+    <!---skrip untuk transisi--->
+
     <script>
-        document.getElementById("btn-jelajahi").addEventListener("click", function (e) {
+        document.getElementById("btn-jelajahi-video").addEventListener("click", function (e) {
             e.preventDefault(); // Cegah langsung pindah halaman
 
             const body = document.getElementById("main-body");
@@ -122,6 +127,19 @@
                 window.location.href = "vid.html"; // Ganti ke halaman video edukasi
             }, 600); // Waktu harus sama dengan di CSS
         });    </script>
+
+    <script>
+        document.getElementById("btn-jelajahi-informasi").addEventListener("click", function (e) {
+            e.preventDefault(); // Cegah langsung pindah halaman
+
+            const body = document.getElementById("main-body");
+            body.classList.add("fade-out");
+
+            setTimeout(function () {
+                window.location.href = "index.html"; // Ganti ke halaman infomasi
+            }, 600); // Waktu harus sama dengan di CSS
+        });    </script>
+
     <script>let currentSlid = 0;
         const slides = document.querySelectorAll(".slide");
 
@@ -130,6 +148,8 @@
             currentSlide = (currentSlide + 1) % slides.length;
             slides[currentSlide].classList.add("active");
         }, 5000);</script>
+
+
 
 </body>
 
