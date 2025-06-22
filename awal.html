@@ -13,6 +13,9 @@
     <!---css-->
     <link rel="stylesheet" href="style.css">
 
+    <!---animasi tulisan-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
 </head>
 
 <body id="main-body">
@@ -68,22 +71,23 @@
                 <div class="slide" style="background-image: url('sepiring\ sayur.jpg');"></div>
 
                 <div class="overlay">
-                    <h1>Selamat datang di <strong>media Nutri Herbal</strong></h1>
-                    <p>mari cegah hipertensi, sedari dini, karena sehat mulai dari diri sendiri.</p>
-                    <a href="vid.html" class="cta-button" id="btn-jelajahi-video">Jelajahi video</a>
-                    <a href="index.html" class="cta-button" id="btn-jelajahi-informasi">Jelajahi Informasi</a>
+                    <div class="animate__animated animate__backInDown ">
+                        <h1>Selamat datang di <strong>media Nutri Herbal</strong></h1>
+                    </div>
+                    <div class="animate__animated animate__backInUp ">
+                        <p><strong>mari cegah hipertensi, sedari dini, karena sehat mulai dari diri sendiri.</strong></p>
+                        <a href="vid.html" class="cta-button" id="btn-jelajahi-video">Jelajahi video</a>
+                        <a href="index.html" class="cta-button" id="btn-jelajahi-informasi">Jelajahi Informasi</a>
+                    </div>
                 </div>
             </section>
             </button>
         </div>
-        </div>
-        </div>
-        </div>
     </header>
 
     <!---nambahin intitusi terkait--->
-    belum ada    <main class="container">
-        
+    <main class="container">
+
     </main>
     <!-------semua file javascripst ada disini------->
     <!-- ini js dari botstrap -->
@@ -115,7 +119,6 @@
     </script>
 
     <!---skrip untuk transisi--->
-
     <script>
         document.getElementById("btn-jelajahi-video").addEventListener("click", function (e) {
             e.preventDefault(); // Cegah langsung pindah halaman
