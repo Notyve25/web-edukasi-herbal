@@ -1,23 +1,113 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Web Media Nutri Herbal</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+        crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        body {
+            background: linear-gradient(120deg, #1ec3ff 0%, #28a745 100%);
+            min-height: 100vh;
+        }
 
+        .card {
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(39, 174, 96, 0.12);
+            animation: fadeInUp 1s;
+        }
+
+        .card-header {
+            background: linear-gradient(90deg, #28a745 0%, #1ec3ff 100%);
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-radius: 18px 18px 0 0;
+        }
+
+        .form-label {
+            font-weight: 500;
+        }
+
+        .preview-img {
+            display: none;
+            margin-top: 10px;
+            max-width: 180px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px #1ec3ff22;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, #1ec3ff 0%, #28a745 100%);
+            border: none;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .btn-primary:active,
+        .btn-primary:focus {
+            background: linear-gradient(90deg, #28a745 0%, #1ec3ff 100%);
+            transform: scale(0.98);
+        }
+
+        .spinner-border {
+            width: 1.5rem;
+            height: 1.5rem;
+            display: none;
+            vertical-align: middle;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Navbar css */
+        .navbar a,
+        .navbar-brand {
+            color: rgb(234, 234, 234) !important;
+        }
+
+        .navbar-brand:hover,
+        .nav-link::shadow {
+            color: rgb(19, 20, 20) !important;
+            box-shadow: 0 4px 8px rgba(19, 20, 20, 0.2) !important;
+        }
+
+        /*css dropdown*/
+        .dropdown-menu {
+            background-color: #28a745 !important;
+        }
+
+        .dropdown-item:hover {
+            color: #28a745 !important;
+        }
+
+        .dropdown-item:hover i {
+            color: #28a745 !important;
+        }
+    </style>
 </head>
 
 <body>
-    <!---navbar--->
-    <nav class="navbar navbar-expand-lg bg-success" data-bs-theme="dark">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-success shadow-sm sticky-top animate__animated animate__fadeInDown">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><i class="fa-solid fa-book-open"></i> Nutri Herbal</a>
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="awal.html">
+                <i class="fa-solid fa-leaf me-2"></i> Nutri Herbal
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -26,14 +116,14 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li>
-                        <a class="nav-link" href="awal.html"> <i class="fa-solid fa-house"></i> Beranda</a>
+                        <a class="nav-link active" href="awal.html"> <i class="fa-solid fa-home"></i>
+                            <strong>Beranda</strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html"> <i
-                                class="fa-solid fa-film"></i>
-                            <strong>Informasi</strong> </a>
+                        <a class="nav-link" href="index.html"><i class="fa-solid fa-circle-info"></i> Informasi</a>
+                    </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="vid.html"> <i class="fa-solid fa-video"></i> Video edukasi</a>
+                        <a class="nav-link" href="vid.html"><i class="fa-solid fa-video"></i> Video Edukasi</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -41,72 +131,131 @@
                             <i class="fa-solid fa-gears"></i> Pilihan
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="grafik.html">grafik</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
+                            <li><a class="dropdown-item" href="grafik.html"><i class="fa-solid fa-chart-column"></i>
+                                    Grafik</a>
                             </li>
-                            <li><a class="dropdown-item" href="form.html">form</a></li>
+                            <li><a class="dropdown-item" href="form.html"><i class="fa-solid fa-file"></i> Formulir</a>
+                            </li>
                         </ul>
-                    </li>
-                    <li class="nav-item">
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+
+    <!-- Isi formulir singkat -->
     <main class="container">
-        <div class="card mt-3">
+        <div class="card mt-4 animate__animated animate__fadeInUp">
             <div class="card-header">
                 <h2> <i class="fa-solid fa-file"></i> FORMULIR DATA PESERTA</h2>
             </div>
             <div class="card-body">
-                <form action="--untuk menyimpan data, update data dan hapus data--">
+                <form id="pesertaForm" autocomplete="off">
                     <div class="mb-3">
                         <label for="nama" class="form-label">Nama</label>
-                        <input type="text" class="form-control" id="nama" placeholder="isikan nama anda">
+                        <input type="text" class="form-control" id="nama" placeholder="Isikan nama anda" required>
+                        <div class="invalid-feedback">Nama wajib diisi.</div>
                     </div>
                     <div class="mb-3">
-                        <label for="Alamat " class="form-label">Alamat anda</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+                        <label for="alamat" class="form-label">Alamat</label>
+                        <textarea class="form-control" id="alamat" rows="2" placeholder="Isikan alamat anda"
+                            required></textarea>
+                        <div class="invalid-feedback">Alamat wajib diisi.</div>
                     </div>
                     <div class="mb-3">
-                        <label for="Tanggal Lahir" class="form-label">Tanggal Lahir</label>
-                        <input type="date" class="form-control" id="Tanggal-Lahir"
-                            placeholder="isikan tanggal lahir anda">
+                        <label for="tanggalLahir" class="form-label">Tanggal Lahir</label>
+                        <input type="date" class="form-control" id="tanggalLahir" required>
+                        <div class="invalid-feedback">Tanggal lahir wajib diisi.</div>
                     </div>
                     <div class="mb-3">
-                        <label for="Jenis Kelamin" class="form-label">Jenis Kelamin</label>
+                        <label class="form-label">Jenis Kelamin</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1"
-                                value="1">
-                            <label class="form-check-label" for="radioDefault1">
-                                pria
-                            </label>
+                            <input class="form-check-input" type="radio" name="jenisKelamin" id="pria" value="Pria"
+                                required>
+                            <label class="form-check-label" for="pria">Pria</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2"
-                                value="2">
-                            <label class="form-check-label" for="radioDefault2">
-                                Wanita
-                            </label>
+                            <input class="form-check-input" type="radio" name="jenisKelamin" id="wanita" value="Wanita"
+                                required>
+                            <label class="form-check-label" for="wanita">Wanita</label>
                         </div>
+                        <div class="invalid-feedback">Pilih jenis kelamin.</div>
                     </div>
                     <div class="mb-3">
-                        <label for="Dokumentasi Peserta" class="form-label">Dokumentasi Peserta</label>
-                        <input type="file" class="form-control" id="Dokumentasi Peserta"
-                            placeholder="isikan tanggal lahir anda">
+                        <label for="dokumentasiPeserta" class="form-label">Dokumentasi Peserta</label>
+                        <input type="file" class="form-control" id="dokumentasiPeserta" accept="image/*">
+                        <img id="previewImg" class="preview-img" alt="Preview Foto Peserta">
+                    </div>
+                    <div class="mb-3 text-end">
+                        <button type="submit" class="btn btn-primary">
+                            <span id="btnText">Simpan</span>
+                            <span class="spinner-border spinner-border-sm" id="btnLoading" role="status"
+                                aria-hidden="true"></span>
+                        </button>
                     </div>
                 </form>
             </div>
         </div>
-        <div class="mb-3 text-end">
-            <button type="submit" class="btn btn-primary">Simpan</button>
-        </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
         crossorigin="anonymous"></script>
+    <script>
+        // Preview foto peserta
+        document.getElementById('dokumentasiPeserta').addEventListener('change', function (e) {
+            const preview = document.getElementById('previewImg');
+            const file = e.target.files[0];
+            if (file) {
+                preview.src = URL.createObjectURL(file);
+                preview.style.display = 'block';
+            } else {
+                preview.src = '';
+                preview.style.display = 'none';
+            }
+        });
 
+        // Validasi dan loading button
+        document.getElementById('pesertaForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            let valid = true;
+            const nama = document.getElementById('nama');
+            const alamat = document.getElementById('alamat');
+            const tanggalLahir = document.getElementById('tanggalLahir');
+            const jenisKelaminPria = document.getElementById('pria');
+            const jenisKelaminWanita = document.getElementById('wanita');
+
+            // Validasi sederhana
+            [nama, alamat, tanggalLahir].forEach(input => {
+                if (!input.value) {
+                    input.classList.add('is-invalid');
+                    valid = false;
+                } else {
+                    input.classList.remove('is-invalid');
+                }
+            });
+            if (!jenisKelaminPria.checked && !jenisKelaminWanita.checked) {
+                jenisKelaminPria.classList.add('is-invalid');
+                jenisKelaminWanita.classList.add('is-invalid');
+                valid = false;
+            } else {
+                jenisKelaminPria.classList.remove('is-invalid');
+                jenisKelaminWanita.classList.remove('is-invalid');
+            }
+
+            if (!valid) return;
+
+            // Loading effect
+            document.getElementById('btnText').style.display = 'none';
+            document.getElementById('btnLoading').style.display = 'inline-block';
+
+            setTimeout(function () {
+                alert('Data berhasil disimpan!');
+                document.getElementById('pesertaForm').reset();
+                document.getElementById('previewImg').style.display = 'none';
+                document.getElementById('btnText').style.display = 'inline';
+                document.getElementById('btnLoading').style.display = 'none';
+            }, 1200);
+        });
+    </script>
 </body>
 
 </html>
