@@ -18,22 +18,37 @@
 
         .card {
             border-radius: 18px;
-            box-shadow: 0 4px 24px rgba(39,174,96,0.12);
+            box-shadow: 0 4px 24px rgba(39, 174, 96, 0.12);
             margin-bottom: 2rem;
             animation: fadeInUp 1s;
+            border: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 32px rgba(39, 174, 96, 0.2);
         }
 
         .card-header {
             background: linear-gradient(90deg, #28a745 0%, #1ec3ff 100%);
             color: #fff;
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             border-radius: 18px 18px 0 0;
+            padding: 1.25rem 1.5rem;
+            text-transform: capitalize;
+            letter-spacing: 0.5px;
+        }
+
+        .card-header i {
+            margin-right: 0.75rem;
         }
 
         .card-body {
             background: #fff;
             border-radius: 0 0 18px 18px;
+            padding: 2rem 1.5rem;
         }
 
         .chart-title {
@@ -43,18 +58,76 @@
         }
 
         .data-source {
-            text-align: right;
-            font-size: 0.95rem;
-            margin-top: 1rem;
-            color: #239b56;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 2.5rem;
+            padding: 1.5rem;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .data-source a {
+            color: #ffff00;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .data-source a:hover {
+            color: #fff;
+            text-decoration: underline;
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px);}
-            to { opacity: 1; transform: translateY(0);}
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-                /* Navbar css */
+        .page-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            letter-spacing: 1px;
+        }
+
+        .page-subtitle {
+            font-size: 1.05rem;
+            opacity: 0.95;
+            line-height: 1.6;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 1.5rem;
+            }
+
+            .page-subtitle {
+                font-size: 0.95rem;
+            }
+
+            .card-header {
+                font-size: 1rem;
+                padding: 1rem 1.25rem;
+            }
+
+            .card-body {
+                padding: 1.5rem 1.25rem;
+            }
+        }
+
+        /* Navbar css */
         .navbar a,
         .navbar-brand {
             color: rgb(234, 234, 234) !important;
@@ -74,6 +147,7 @@
         .dropdown-item:hover {
             color: #28a745 !important;
         }
+
         .dropdown-item:hover i {
             color: #28a745 !important;
         }
@@ -124,14 +198,24 @@
     </nav>
 
     <!-- Isi materi singkat dalam grafik -->
-    <main class="container py-4">
-        <div class="text-center mb-4">
-            <h2 class="fw-bold text-white animate__animated animate__fadeInDown"><i class="fa-solid fa-chart-column"></i> Statistik Kesehatan Masyarakat DIY</h2>
-            <p class="text-white animate__animated animate__fadeInUp">Data berikut menampilkan tingkat keluhan kesehatan, jaminan kesehatan, dan jumlah tenaga gizi di berbagai kabupaten/kota di Daerah Istimewa Yogyakarta.</p>
+    <main class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold text-white page-title animate__animated animate__fadeInDown">
+                <i class="fa-solid fa-chart-column"></i> Statistik Laju Pertumbuhan Penyakit Hipertensi Kabupaten
+                Sleman, Daerah Istimewa Yogyakarta
+            </h2>
+            <p class="text-white mb-3 animate__animated animate__fadeInUp"
+                style="font-size: 1.1rem; font-weight: 600; color: #fff;">
+
+            </p>
+            <p class="text-white page-subtitle animate__animated animate__fadeInUp" style="font-weight: 600;">
+                Data menampilkan statistik penderita hipertensi di berbagai wilayah puskesmas Sleman dan jumlah
+                penderita hipertensi berdasarkan data kesehatan.
+            </p>
         </div>
         <div class="card animate__animated animate__fadeInUp">
             <div class="card-header">
-                <i class="fa-solid fa-table-list"></i> Keluhan Kesehatan Masyarakat
+                <i class="fa-solid fa-table-list"></i> grafik jumlah penderita hipertensi di wilayah kabupaten sleman
             </div>
             <div class="card-body">
                 <div id="chart-keluhan-kesehatan"></div>
@@ -140,26 +224,22 @@
 
         <div class="card animate__animated animate__fadeInUp">
             <div class="card-header">
-                <i class="fa-solid fa-table-list"></i> Jaminan Kesehatan Masyarakat
+                <i class="fa-solid fa-table-list"></i> jumlah penderita hipertensi wilayah puskesmas sleman
             </div>
             <div class="card-body">
                 <div id="chart-jaminan-kesehatan"></div>
             </div>
         </div>
 
-        <div class="card animate__animated animate__fadeInUp">
-            <div class="card-header">
-                <i class="fa-solid fa-table-list"></i> Jumlah Tenaga Gizi
-            </div>
-            <div class="card-body">
-                <div id="chart-jumlah-tenaga-gizi"></div>
-            </div>
-        </div>
 
         <div class="data-source">
             <i>
                 Sumber data: <a href="https://yogyakarta.bps.go.id/" target="_blank"
                     rel="noopener noreferrer">yogyakarta.bps.go.id</a>
+            </i>
+            <i>
+                Sumber data: <a href="https://smartdinkes.slemankab.go.id/backend-v4/hipertensi/dashboard?pid=P3404130201&t=202601&flaged=all&area=puskesmas" target="_blank"
+                    rel="noopener noreferrer">smartdinkes.slemankab.go.id</a>
             </i>
         </div>
     </main>
@@ -167,11 +247,11 @@
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script>
-        // Keluhan Kesehatan
+        // Penderita hipertensi di wilayah kabupaten sleman
         var keluhankesehatanoptions = {
             series: [{
-                name: 'Keluhan Kesehatan',
-                data: [31.96, 31.65, 30.97, 22.91, 22.71]
+                name: 'Penderita hipertensi di wilayah kabupaten sleman',
+                data: [69, 56, 52, 45, 40]
             }],
             chart: {
                 type: 'bar',
@@ -194,8 +274,8 @@
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['Kulon Progo', 'Kota Yogyakarta', 'Bantul', 'Gunung Kidul', 'Sleman'],
-                title: { text: 'Kabupaten / Kota' }
+                categories: ['Wilayah Mlati', 'Wilayah Sleman', 'Wilayah Seyegan', 'Wilayah Prambanan', 'Wilayah Turi'],
+                title: { text: 'Kabupaten' }
             },
             yaxis: {
                 title: { text: 'Persentase (%)' }
@@ -215,8 +295,8 @@
         // Jaminan Kesehatan
         var jaminankesehatanoptions = {
             series: [{
-                name: 'Jaminan Kesehatan',
-                data: [67.33, 53.05, 53.92, 77.5, 39.56]
+                name: 'wilayah puskesmas sleman',
+                data: [77.5, 63.3, 53.92, 40.3, 39.56]
             }],
             chart: {
                 type: 'bar',
@@ -239,8 +319,8 @@
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['Kulon Progo', 'Kota Yogyakarta', 'Bantul', 'Gunung Kidul', 'Sleman'],
-                title: { text: 'Kabupaten / Kota' }
+                categories: ['Triharjo', 'Caturharjo', 'Tridadi', 'Trimulyo', 'Pendowoharjo'],
+                title: { text: 'Desa' }
             },
             yaxis: {
                 title: { text: 'Persentase (%)' }
@@ -257,35 +337,6 @@
         var jaminankesehatanchart = new ApexCharts(document.querySelector("#chart-jaminan-kesehatan"), jaminankesehatanoptions);
         jaminankesehatanchart.render();
 
-        // Jumlah Tenaga Gizi
-        var jumlahtenagagizioptions = {
-            series: [73, 103, 151, 69, 228],
-            chart: {
-                width: '100%',
-                type: 'pie',
-                height: 320,
-                toolbar: { show: false },
-                animations: { enabled: true }
-            },
-            labels: ['Kulon Progo', 'Kota Yogyakarta', 'Bantul', 'Gunung Kidul', 'Sleman'],
-            colors: ['#1ec3ff', '#28a745', '#ffe066', '#ff7f50', '#6c63ff'],
-            legend: {
-                position: 'bottom',
-                fontSize: '1rem'
-            },
-            responsive: [{
-                breakpoint: 576,
-                options: {
-                    chart: {
-                        width: '100%',
-                        height: 220
-                    },
-                    legend: {
-                        fontSize: '0.9rem'
-                    }
-                }
-            }]
-        };
         var jumlahtenagagizichart = new ApexCharts(document.querySelector("#chart-jumlah-tenaga-gizi"), jumlahtenagagizioptions);
         jumlahtenagagizichart.render();
     </script>

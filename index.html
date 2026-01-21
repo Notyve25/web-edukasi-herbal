@@ -568,7 +568,7 @@
                 </h2>
                 <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        <strong>Minuman herbal</strong> seperti air rebusan jahe, daun salam, dan seledri dapat membantu
+                        <strong>Minuman herbal</strong> seperti air rebusan daun seledri,jus semangka,jus mentimun dan jus wortel + belimbing dapat membantu
                         menurunkan tekanan darah secara alami. Konsumsi secara rutin dan konsultasikan dengan tenaga
                         kesehatan sebelum memulai terapi herbal.
                     </div>
@@ -866,23 +866,23 @@
                         return;
                     }
                     if (sbp < 90 || dbp < 60) {
-                        showResult('hypotension', '🔵 <b>Hipotensi</b><br>Tekanan darah rendah. Jika gejala muncul, konsultasikan tenaga kesehatan.');
+                        showResult('hypotension', '🔵 <b>Hipotensi</b><br>Tekanan darah rendah atau hipotensi. Jika gejala muncul, konsultasikan tenaga kesehatan.');
                         return;
                     }
                     if (sbp < 120 && dbp < 80) {
-                        showResult('normal', '✅ <b>Normal</b><br>Tekanan darah Anda normal. Pertahankan pola hidup sehat.');
+                        showResult('normal', '✅ <b>Normal</b><br>Tekanan darah Anda normal. Pertahankan pola hidup sehat, pola makan yang baik agar tetap tekanan darah tetap terjaga.');
                         return;
                     }
                     if (sbp >= 120 && sbp <= 129 && dbp < 80) {
-                        showResult('elevated', '⚠️ <b>Elevated</b><br>Berisiko menuju hipertensi. Kurangi garam dan perbaiki pola makan.');
+                        showResult('elevated', '⚠️ <b>Elevated</b><br>Berisiko menuju hipertensi. Kurangi konsumsi garam, perbaiki pola makan, olahraga secara teratur, dan kelola stres.');
                         return;
                     }
                     if ((sbp >= 130 && sbp <= 139) || (dbp >= 80 && dbp <= 89)) {
-                        showResult('stage1', '🟠 <b>Hipertensi Stage 1</b><br>Perlu perubahan gaya hidup dan konsultasi jika perlu.');
+                        showResult('stage1', '🟠 <b>Hipertensi Stage 1</b><br>wajib melakukan perubahan gaya hidup dan konsultasi kepada tenaga kesehatan.');
                         return;
                     }
                     if (sbp >= 140 || dbp >= 90) {
-                        showResult('stage2', '🔴 <b>Hipertensi Stage 2</b><br>Segera konsultasikan dengan tenaga kesehatan.');
+                        showResult('stage2', '🔴 <b>Hipertensi Stage 2</b><br>sangat berbahaya!,Segera konsultasikan dengan tenaga kesehatan.');
                         return;
                     }
                 }, 400);
@@ -907,25 +907,10 @@
         })();
     </script>
 
-    <!-- Instansi Terkait -->
-    <div class="card card-instansi mt-4 animate__animated animate__fadeInUp">
-        <div class="card-body text-center">
-            <h3 class="mb-3"><i class="fa-solid fa-building-columns"></i> INSTANSI TERKAIT</h3>
-            <img class="instansi-img"
-                src="https://kemkes.go.id/app_asset/image_content/167420049363ca45ad438f30.09191866.png" alt="Kemenkes"
-                width="100">
-            <img class="instansi-img" src="https://labkesling.poltekkesjogja.ac.id/images/logopolkesyoo.webp"
-                alt="Poltekkes Jogja" width="100">
-            <img class="instansi-img"
-                src="https://images.seeklogo.com/logo-png/39/1/puskesmas-logo-png_seeklogo-394834.png" alt="Puskesmas"
-                width="100">
-        </div>
-    </div>
-
     <!-- Footer -->
     <footer class="bg-success text-white text-center py-3 mt-5 animate__animated animate__fadeInUp">
         <div>
-            &copy; 2025 Nutri Herbal | Dibuat oleh Tim Nutri Herbal
+            &copy; 2025 Nutri Herbal | Dibuat oleh Noval yahya dan Tim Nutri Herbal
         </div>
     </footer>
 </body>
