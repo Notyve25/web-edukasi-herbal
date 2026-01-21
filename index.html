@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
 
 <head>
     <meta charset="utf-8">
@@ -102,30 +102,315 @@
             color: #fff;
         }
 
-        /* Navbar css */
-        .navbar a,
-        .navbar-brand {
-            color: rgb(234, 234, 234) !important;
+        /* Navbar: teks putih, hover & active */
+        .navbar .navbar-brand,
+        .navbar .nav-link {
+            color: #fff !important;
         }
 
-        .navbar-brand:hover,
-        .nav-link::shadow {
-            color: rgb(19, 20, 20) !important;
-            box-shadow: 0 4px 8px rgba(19, 20, 20, 0.2) !important;
+        .navbar .nav-link:hover,
+        .navbar .navbar-brand:hover,
+        .navbar .nav-link.active {
+            color: #fff !important;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 8px;
         }
 
-        /*css dropdown*/
+        /* Dropdown agar teks terbaca */
         .dropdown-menu {
             background-color: #28a745 !important;
         }
 
+        .dropdown-item {
+            color: #fff !important;
+        }
+
         .dropdown-item:hover {
-            color: #28a745 !important;
+            background: rgba(255, 255, 255, 0.08) !important;
+            color: #fff !important;
         }
-        .dropdown-item:hover i {
-            color: #28a745 !important;
+
+        /* Cek tekanan (diperbarui: warna, layout, animasi) */
+        :root {
+            --brand: #28a745;
+            --accent: #1ec3ff;
+            --danger: #e74c3c;
         }
-    </style>
+
+        /* cek-card: lebar mengikuti container / accordion */
+        .cek-card {
+            width: 100%;
+            max-width: none;
+            margin: 16px 0;
+            background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+            padding: 20px;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(39, 174, 96, 0.08);
+            border-left: 6px solid var(--brand);
+            transition: transform .25s ease, box-shadow .25s ease;
+            animation: popIn .35s ease;
+        }
+
+        /* AKG card: lebar mengikuti container / accordion */
+        .akg-card {
+            width: 100%;
+            max-width: none;
+            margin: 16px 0;
+            border-radius: 14px;
+            box-shadow: 0 12px 30px rgba(39, 174, 96, 0.08);
+            overflow: hidden;
+            border: 1px solid rgba(39, 174, 96, 0.06);
+            border-left: 6px solid var(--brand);
+        }
+
+        .akg-card .card-body {
+            padding: 20px; /* samakan dengan cek-card */
+        }
+
+        /* AKG: header & tip khusus usia 30-50 */
+        .akg-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 6px;
+        }
+
+        .akg-header .icon {
+            font-size: 1.5rem;
+            color: var(--brand);
+            background: rgba(39, 174, 96, 0.08);
+            padding: 8px;
+            border-radius: 8px;
+        }
+
+        .akg-tip {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            background: linear-gradient(90deg, #fff7e6, #fffbe9);
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 10px;
+            color: #8a6d00;
+        }
+
+        .akg-tip.d-none {
+            display: none !important;
+        }
+
+        .akg-tip.highlight {
+            box-shadow: 0 6px 20px rgba(255, 193, 7, 0.08);
+            border-left: 6px solid #ffb84d;
+        }
+
+        .result-box.highlight {
+            box-shadow: 0 8px 30px rgba(39, 174, 96, 0.06);
+            border-left: 6px solid var(--brand);
+            transform: scale(1.01);
+            transition: transform .24s;
+        }
+
+        /* input & tombol lebih nyaman untuk target 30-50 */
+        .akg-card .form-control,
+        .cek-card .form-control {
+            font-size: 1rem;
+            padding: 10px 12px;
+        }
+
+        .akg-btn,
+        .btn-cek {
+            font-size: 1rem;
+            padding: 10px 14px;
+        }
+
+        @keyframes popIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px) scale(.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .cek-card .form-control:focus {
+            box-shadow: 0 6px 18px rgba(30, 195, 255, 0.12);
+            border-color: var(--accent);
+            outline: none;
+        }
+
+        .btn-cek {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--brand) 100%);
+            color: #fff;
+            border: none;
+            border-radius: 999px;
+            padding: 10px 18px;
+            font-weight: 600;
+            box-shadow: 0 6px 20px rgba(39, 174, 96, 0.16);
+            transition: transform .15s ease, box-shadow .15s ease;
+        }
+
+        .btn-cek:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(39, 174, 96, 0.20);
+        }
+
+        .result {
+            margin-top: 12px;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: opacity .28s ease, transform .28s ease;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .result.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .result.normal {
+            background: linear-gradient(90deg, #d4edda, #e6fbef);
+            color: #155724;
+            border-left: 4px solid var(--brand);
+        }
+
+        .result.elevated {
+            background: linear-gradient(90deg, #fff6db, #fff3cd);
+            color: #856404;
+            border-left: 4px solid #ffb84d;
+        }
+
+        .result.stage1 {
+            background: linear-gradient(90deg, #fff0d6, #ffeeba);
+            color: #856404;
+            border-left: 4px solid #ff9f1a;
+        }
+
+        .result.stage2 {
+            background: linear-gradient(90deg, #ffd6d8, #f8d7da);
+            color: #721c24;
+            border-left: 4px solid #e74c3c;
+        }
+
+        /* hasil AKG menggunakan kelas result agar konsisten dengan cek tekanan darah */
+        .result.safe {
+            background: linear-gradient(90deg, #e6fbef, #f0fff6);
+            color: #155724;
+            border-left: 4px solid var(--brand);
+        }
+
+        .result.warning {
+            background: linear-gradient(90deg, #fffaf0, #fff7e6);
+            color: #856404;
+            border-left: 4px solid #ffb84d;
+        }
+
+        .result.danger {
+            background: linear-gradient(90deg, #ffecec, #fff0f0);
+            color: #721c24;
+            border-left: 4px solid var(--danger);
+        }
+
+        /* shake animation saat invalid input */
+        @keyframes shake {
+            0% {
+                transform: translateX(0);
+            }
+
+            20% {
+                transform: translateX(-6px);
+            }
+
+            40% {
+                transform: translateX(6px);
+            }
+
+            60% {
+                transform: translateX(-4px);
+            }
+
+            80% {
+                transform: translateX(4px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .shake {
+            animation: shake .46s ease;
+        }
+
+        /* Hasil AKG natrium */
+        .result-box {
+            margin-top: 12px;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 15px;
+        }
+
+        .safe {
+            background-color: #e6f7ee;
+            color: #1e7f4f;
+        }
+
+        .warning {
+            background-color: #fff8e1;
+            color: #9c6f19;
+        }
+
+        .danger {
+            background-color: #fdecea;
+            color: #b42318;
+        }
+
+        /* AKG Natrium card: samakan lebar & padding dengan cek-card */
+        .akg-card {
+            width: 100%;
+            max-width: none;
+            margin: 16px 0;
+            border-radius: 14px;
+            box-shadow: 0 12px 30px rgba(39, 174, 96, 0.08);
+            overflow: hidden;
+            border: 1px solid rgba(39, 174, 96, 0.06);
+            border-left: 6px solid var(--brand);
+        }
+
+        .akg-card .card-body {
+            padding: 20px; /* samakan dengan cek-card */
+        }
+
+        /* tombol & spinner */
+        .akg-btn {
+            position: relative;
+        }
+
+        .akg-btn .spinner-border {
+            vertical-align: middle;
+        }
+
+        .akg-reset {
+            margin-top: 8px;
+        }
+
+        @media (max-width: 576px) {
+            .akg-card {
+                margin: 12px;
+            }
+        }
+
+        .small-muted {
+            font-size: .9rem;
+            color: #6b6b6b;
+        }
     </style>
 </head>
 
@@ -224,7 +509,7 @@
                     <div class="accordion-body">
                         <strong>Hipertensi</strong> adalah kondisi medis di mana tekanan darah pada pembuluh arteri
                         meningkat melebihi batas normal secara konsisten. Secara umum, tekanan darah hipertensi
-                        didefinisikan sebagai tekanan sistolik ≥ 140 mmHg atau tekanan diastolik ≥ 90 mmHg.
+                        didefinisikan sebagai tekanan sistolik > 120 mmHg atau tekanan diastolik > 80 mmHg.
                     </div>
                 </div>
             </div>
@@ -290,36 +575,97 @@
                 </div>
             </div>
         </div>
-        <!-- Kalkulator Natrium Harian -->
-        <div class="card card-instansi mt-4 animate__animated animate__fadeInUp">
-            <div class="card-body">
-                <h3 class="mb-3"><i class="fa-solid fa-calculator"></i> Kalkulator Natrium Harian</h3>
-                <form id="natriumForm" class="row g-3 justify-content-center">
-                    <div class="col-md-4">
-                        <label for="beratBadan" class="form-label">Berat Badan (kg)</label>
-                        <input type="number" class="form-control" id="beratBadan" min="1" required>
+        <!-- Kalkulator Natrium Harian (UI diperbarui, logic JS tetap sama) -->
+        <section class="my-4">
+            <div class="card akg-card">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-2">
+                        <div class="me-2" style="font-size:1.35rem;color:var(--brand)"><i
+                                class="fa-solid fa-calculator"></i>
+                        </div>
+                        <div>
+                            <h4 class="mb-0">Kalkulator AKG Natrium</h4>
+                            <div class="small-muted">Masukkan usia dan jenis kelamin untuk melihat rekomendasi kebutuhan natrium dan setara konsumsi garam.</div>
+                        </div>
                     </div>
-                    <div class="col-md-4">
-                        <label for="usia" class="form-label">Usia (tahun)</label>
-                        <input type="number" class="form-control" id="usia" min="1" required>
+
+                    <div class="row g-2">
+                        <div class="col-md-6">
+                            <label for="usia">Usia (tahun)</label>
+                            <input type="number" id="usia" class="form-control" placeholder="Mis. 45" min="1"
+                                aria-describedby="usiaHelp">
+                            <div id="usiaHelp" class="form-text">Masukkan usia dalam tahun (contoh: 45).</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="jk">Jenis Kelamin</label>
+                            <select id="jk" class="form-select" aria-label="Jenis kelamin">
+                                <option value="">Pilih</option>
+                                <option value="laki">Laki-laki</option>
+                                <option value="perempuan">Perempuan</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="col-md-4">
-                        <label for="aktivitas" class="form-label">Tingkat Aktivitas</label>
-                        <select class="form-select" id="aktivitas" required>
-                            <option value="" disabled selected>Pilih...</option>
-                            <option value="rendah">Rendah</option>
-                            <option value="sedang">Sedang</option>
-                            <option value="tinggi">Tinggi</option>
-                        </select>
+
+                    <div class="d-flex gap-2 mt-3">
+                        <button class="btn btn-cek flex-fill" id="akgBtn" type="button" aria-live="polite">
+                            <span id="akgBtnLabel">Lihat Rekomendasi AKG</span>
+                            <span id="akgSpinner" class="spinner-border spinner-border-sm ms-2 d-none" role="status"
+                                aria-hidden="true"></span>
+                        </button>
+                        <button class="btn btn-outline-secondary" id="akgReset" type="button">Reset</button>
                     </div>
-                    <div class="col-12 text-center">
-                        <button type="submit" class="btn btn-success mt-2"><i class="fa-solid fa-calculator"></i> Hitung
-                            Natrium</button>
+
+                    <div id="akgTip" class="akg-tip d-none mt-3" role="note" aria-hidden="true">
+                        <i class="fa-solid fa-lightbulb me-2"></i>
+                        <div><strong>Tips 30–50 th:</strong> Kurangi garam, jaga berat badan, dan lakukan aktivitas fisik minimal 30 menit/hari.</div>
                     </div>
-                </form>
-                <div id="hasilNatrium" class="mt-3 fw-bold text-success"></div>
+
+                    <div id="akgResultWrap" style="margin-top:16px; display:none;">
+                        <div id="hasilAKG" class="result" role="status" aria-live="polite"></div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
+        <!-- End Kalkulator Natrium Harian -->
+
+
+        <!-- Cek Tekanan Darah (section terpisah) -->
+        <section class="my-4">
+            <div class="cek-card">
+                <div class="d-flex align-items-center mb-2">
+                    <div class="me-2" style="font-size:1.35rem;color:var(--brand)"><i
+                            class="fa-solid fa-stethoscope"></i></div>
+                    <div>
+                        <h3 class="mb-0">Cek Tekanan Darah</h3>
+                        <div class="small-muted">Masukkan hasil pengukuran untuk melihat kategori tekanan darah Anda.
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-2">
+                    <div class="col-md-6">
+                        <label for="sbp">Sistolik (mmHg)</label>
+                        <input type="number" id="sbp" class="form-control" placeholder="Contoh: 120" min="30" max="250"
+                            aria-describedby="sbpHelp">
+                        <div id="sbpHelp" class="form-text">Masukkan nilai antara 90 – 200</div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="dbp">Diastolik (mmHg)</label>
+                        <input type="number" id="dbp" class="form-control" placeholder="Contoh: 80" min="30" max="200"
+                            aria-describedby="dbpHelp">
+                        <div id="dbpHelp" class="form-text">Masukkan nilai antara 90 – 200</div>
+                    </div>
+                </div>
+                <div class="d-flex gap-2 mt-3">
+                    <button class="btn btn-cek flex-fill" id="cekTekananBtn" aria-live="polite">
+                        <span id="cekLabel">Cek Hasil</span>
+                        <span id="cekSpinner" class="spinner-border spinner-border-sm ms-2 d-none" role="status"
+                            aria-hidden="true"></span>
+                    </button>
+                    <button class="btn btn-outline-secondary" id="resetTekananBtn" type="button">Reset</button>
+                </div>
+                <div id="hasil" class="result mt-3" role="status" aria-live="polite"></div>
+            </div>
+        </section>
     </main>
 
     <!-- WhatsApp Floating Button -->
@@ -333,32 +679,232 @@
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
         crossorigin="anonymous"></script>
 
+
+    <!-- Kalkulator garam (AKG berdasarkan usia) -->
     <script>
-        document.getElementById('natriumForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const berat = parseFloat(document.getElementById('beratBadan').value);
-            const usia = parseInt(document.getElementById('usia').value);
-            const aktivitas = document.getElementById('aktivitas').value;
+        const AKG_NATRIUM_V5 = {
+            laki: [
+                { range: "1–3", min: 1, max: 3, mg: 800 },
+                { range: "4–6", min: 4, max: 6, mg: 900 },
+                { range: "7–9", min: 7, max: 9, mg: 1000 },
+                { range: "10–12", min: 10, max: 12, mg: 1300 },
+                { range: "13–15", min: 13, max: 15, mg: 1500 },
+                { range: "16–18", min: 16, max: 18, mg: 1600 },
+                { range: "19–49", min: 19, max: 49, mg: 1500 },
+                { range: "50–64", min: 50, max: 64, mg: 1300 },
+                { range: "≥65", min: 65, max: 120, mg: 1000 }
+            ],
+            perempuan: [
+                { range: "1–3", min: 1, max: 3, mg: 800 },
+                { range: "4–6", min: 4, max: 6, mg: 900 },
+                { range: "7–9", min: 7, max: 9, mg: 1000 },
+                { range: "10–12", min: 10, max: 12, mg: 1200 },
+                { range: "13–15", min: 13, max: 15, mg: 1400 },
+                { range: "16–18", min: 16, max: 18, mg: 1500 },
+                { range: "19–49", min: 19, max: 49, mg: 1400 },
+                { range: "50–64", min: 50, max: 64, mg: 1200 },
+                { range: "≥65", min: 65, max: 120, mg: 1000 }
+            ]
+        };
 
-            // Rumus sederhana: kebutuhan natrium rata-rata dewasa 1500-2300 mg/hari
-            // Modifikasi berdasarkan aktivitas dan usia
-            let natrium = 1500;
-            if (aktivitas === 'sedang') natrium += 300;
-            if (aktivitas === 'tinggi') natrium += 600;
-            if (usia < 18) natrium -= 200;
-            if (berat > 80) natrium += 100;
+        // konversi gram garam ke perkiraan ukuran sendok teh (sederhana)
+        function konversiSendokTeh(gram) {
+            if (gram <= 1.25) return "¼ sendok teh";
+            if (gram <= 2) return "⅓ sendok teh";
+            if (gram <= 3) return "½ sendok teh";
+            if (gram <= 4) return "¾ sendok teh";
+            return "≈ 1 sendok teh";
+        }
 
-            // Konversi ke sendok teh (1 sdt garam ≈ 2000 mg natrium)
-            let sendokTehText = "≈ 1 sendok teh garam";
-            if (natrium > 2000) {
-                sendokTehText = "≈ 1 sendok teh garam (melebihi batas WHO)";
+        function hitungAKGv5() {
+            const usia = parseInt(document.getElementById("usia").value, 10);
+            const jk = document.getElementById("jk").value;
+            const hasil = document.getElementById("hasilAKG");
+            const wrap = document.getElementById("akgResultWrap");
+            const btn = document.getElementById("akgBtn");
+            const spinner = document.getElementById("akgSpinner");
+            const btnLabel = document.getElementById("akgBtnLabel");
+            const tip = document.getElementById('akgTip');
+
+            if (isNaN(usia) || usia <= 0 || !jk) {
+                alert("Masukkan usia dan jenis kelamin dengan benar");
+                return;
             }
 
-            document.getElementById('hasilNatrium').innerHTML =
-                `Kebutuhan natrium harian Anda sekitar <span style="color:#28a745">${natrium} mg</span> 
-            <br><span style="color:#239b56">${sendokTehText}</span>
-            <br><small>Batas maksimal konsumsi natrium menurut WHO adalah 2300 mg/hari (sekitar 1 sendok teh).</small>`;
+            // loading UI
+            btn.disabled = true; spinner.classList.remove('d-none'); btnLabel.textContent = 'Menghitung...';
+
+            setTimeout(() => {
+                const dataAKG = AKG_NATRIUM_V5[jk];
+                let rekomendasi = null;
+                for (const item of dataAKG) {
+                    if (usia >= item.min && usia <= item.max) { rekomendasi = item; break; }
+                }
+                if (!rekomendasi) {
+                    alert("Usia di luar rentang AKG");
+                    btn.disabled = false; spinner.classList.add('d-none'); btnLabel.textContent = 'Lihat Rekomendasi AKG';
+                    return;
+                }
+
+                const natrium = rekomendasi.mg;
+                // konversi natrium -> garam yang lebih akurat (~393.4 mg Na per 1 g NaCl)
+                const garam = +(natrium / 393.4).toFixed(2);
+                const sendokTeh = konversiSendokTeh(garam);
+                const pct = Math.round((natrium / 2300) * 100);
+
+                // tentukan status UI
+                let status = '';
+                if (natrium <= 1500) status = 'safe';
+                else if (natrium <= 2000) status = 'warning';
+                else status = 'danger';
+
+                // render hasil (konsisten dengan style .result)
+                hasil.className = `result ${status} show`;
+                hasil.innerHTML = `
+                    <div style="display:flex;gap:12px;align-items:center;justify-content:space-between;">
+                        <div><strong>Kelompok Usia:</strong> ${rekomendasi.range} &nbsp; <small class="text-muted">(${jk === 'laki' ? 'Laki-laki' : 'Perempuan'})</small></div>
+                        <div><small class="text-muted">Sumber: AKG — Permenkes RI No.28/2019</small></div>
+                    </div>
+                    <hr style="margin:.5rem 0;">
+                    <div><strong>Kebutuhan Natrium Harian:</strong> <span style="color:#28a745">${natrium} mg</span></div>
+                    <div><strong>Setara Garam:</strong> ± ${garam} g/hari <small class="text-muted">(${sendokTeh})</small></div>
+                    <div class="mt-2">
+                        <div class="progress" style="height:10px">
+                            <div class="progress-bar" role="progressbar" style="width:${pct}%"></div>
+                        </div>
+                        <small class="small-muted">${pct}% dari batas WHO (2300 mg/hari)</small>
+                    </div>
+                `;
+
+                // tampilkan wrap & fokus
+                wrap.style.display = 'block';
+                hasil.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                // tip & highlight untuk usia 30-50
+                if (usia >= 30 && usia <= 50) {
+                    hasil.classList.add('highlight');
+                    if (tip) { tip.classList.remove('d-none'); tip.classList.add('highlight'); tip.setAttribute('aria-hidden', 'false'); }
+                } else {
+                    hasil.classList.remove('highlight');
+                    if (tip) { tip.classList.add('d-none'); tip.classList.remove('highlight'); tip.setAttribute('aria-hidden', 'true'); }
+                }
+
+                // restore button
+                btn.disabled = false; spinner.classList.add('d-none'); btnLabel.textContent = 'Lihat Rekomendasi AKG';
+            }, 360);
+        }
+
+        // Sambungkan tombol & Reset behavior
+        document.getElementById('akgBtn')?.addEventListener('click', hitungAKGv5);
+        document.getElementById('akgReset')?.addEventListener('click', function () {
+            document.getElementById('usia').value = '';
+            document.getElementById('jk').value = '';
+            const wrap = document.getElementById("akgResultWrap");
+            const hasil = document.getElementById("hasilAKG");
+            if (wrap) wrap.style.display = 'none';
+            if (hasil) { hasil.className = 'result'; hasil.innerHTML = ''; }
+            const tip = document.getElementById('akgTip'); if (tip) { tip.classList.add('d-none'); tip.classList.remove('highlight'); tip.setAttribute('aria-hidden', 'true'); }
         });
+    </script>
+    <script>
+        // Show/hide tip while typing age (UX)
+        (function () {
+            const usiaInput = document.getElementById('usia');
+            const tip = document.getElementById('akgTip');
+            if (!usiaInput || !tip) return;
+            usiaInput.addEventListener('input', function () {
+                const v = parseInt(this.value, 10);
+                if (!isNaN(v) && v >= 30 && v <= 50) { tip.classList.remove('d-none'); tip.classList.add('highlight'); tip.setAttribute('aria-hidden', 'false'); }
+                else { tip.classList.add('d-none'); tip.classList.remove('highlight'); tip.setAttribute('aria-hidden', 'true'); }
+            });
+        })();
+    </script>
+
+    <!-- Cek Tekanan Darah: skrip diperbarui, validasi + focus on open + clear on close -->
+    <script>
+        (function () {
+            const sbpEl = () => document.getElementById('sbp');
+            const dbpEl = () => document.getElementById('dbp');
+            const hasilEl = () => document.getElementById('hasil');
+            const cekBtn = document.getElementById('cekTekananBtn');
+            const resetBtn = document.getElementById('resetTekananBtn');
+            const spinner = document.getElementById('cekSpinner');
+            const cekLabel = document.getElementById('cekLabel');
+
+            function setLoading(loading) {
+                cekBtn.disabled = loading;
+                if (loading) { spinner.classList.remove('d-none'); cekLabel.textContent = 'Mengecek...'; }
+                else { spinner.classList.add('d-none'); cekLabel.textContent = 'Cek Hasil'; }
+            }
+
+            function showResult(type, html) {
+                const r = hasilEl();
+                r.className = 'result ' + type + ' show';
+                r.innerHTML = html;
+                r.focus?.();
+            }
+
+            cekBtn.addEventListener('click', function () {
+                const sbp = parseInt(sbpEl().value);
+                const dbp = parseInt(dbpEl().value);
+                const r = hasilEl();
+                r.className = 'result';
+                r.innerHTML = '';
+
+                if (isNaN(sbp) || isNaN(dbp) || sbp < 30 || dbp < 30) {
+                    [sbpEl(), dbpEl()].forEach(el => { el.classList.add('shake'); setTimeout(() => el.classList.remove('shake'), 500); });
+                    showResult('', '⚠️ Harap isi SBP dan DBP dengan nilai valid.');
+                    return;
+                }
+
+                setLoading(true);
+                // simulasi proses singkat untuk UX; hapus delay kalau tidak perlu
+                setTimeout(() => {
+                    setLoading(false);
+                    if (sbp < 50 || dbp < 50) {
+                        showResult('error', '❌ <b>Data tidak valid</b><br>Nilai terlalu rendah, periksa alat ukur.');
+                        return;
+                    }
+                    if (sbp < 90 || dbp < 60) {
+                        showResult('hypotension', '🔵 <b>Hipotensi</b><br>Tekanan darah rendah. Jika gejala muncul, konsultasikan tenaga kesehatan.');
+                        return;
+                    }
+                    if (sbp < 120 && dbp < 80) {
+                        showResult('normal', '✅ <b>Normal</b><br>Tekanan darah Anda normal. Pertahankan pola hidup sehat.');
+                        return;
+                    }
+                    if (sbp >= 120 && sbp <= 129 && dbp < 80) {
+                        showResult('elevated', '⚠️ <b>Elevated</b><br>Berisiko menuju hipertensi. Kurangi garam dan perbaiki pola makan.');
+                        return;
+                    }
+                    if ((sbp >= 130 && sbp <= 139) || (dbp >= 80 && dbp <= 89)) {
+                        showResult('stage1', '🟠 <b>Hipertensi Stage 1</b><br>Perlu perubahan gaya hidup dan konsultasi jika perlu.');
+                        return;
+                    }
+                    if (sbp >= 140 || dbp >= 90) {
+                        showResult('stage2', '🔴 <b>Hipertensi Stage 2</b><br>Segera konsultasikan dengan tenaga kesehatan.');
+                        return;
+                    }
+                }, 400);
+            });
+
+            resetBtn.addEventListener('click', function () {
+                sbpEl().value = '';
+                dbpEl().value = '';
+                const r = hasilEl();
+                r.className = 'result';
+                r.innerHTML = '';
+                sbpEl().focus();
+            });
+
+            // inisialisasi: bersihkan saat load
+            document.addEventListener('DOMContentLoaded', function () {
+                if (sbpEl()) sbpEl().value = '';
+                if (dbpEl()) dbpEl().value = '';
+                const r = hasilEl();
+                if (r) { r.className = 'result'; r.innerHTML = ''; }
+            });
+        })();
     </script>
 
     <!-- Instansi Terkait -->
@@ -376,27 +922,12 @@
         </div>
     </div>
 
-    <!-- Navbar Active State -->
-    <script>
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function () {
-                navLinks.forEach(nav => nav.classList.remove('active'));
-                this.classList.add('active');
+    <!-- Footer -->
+    <footer class="bg-success text-white text-center py-3 mt-5 animate__animated animate__fadeInUp">
+        <div>
+            &copy; 2025 Nutri Herbal | Dibuat oleh Tim Nutri Herbal
+        </div>
+    </footer>
+</body>
 
-</body >
-                    <!-- Footer -->
-                    <footer class="bg-success text-white text-center py-3 mt-5 animate__animated animate__fadeInUp">
-                        <div>
-                            &copy; 2025 Nutri Herbal |
-                            <a href="mailto:info@nutriherbal.com" class="text-white text-decoration-underline"><i
-                                class="fa-solid fa-envelope"></i> info@nutriherbal.com</a> |
-                            <a href="https://instagram.com/nutriherbal" target="_blank" class="text-white"><i
-                                class="fa-brands fa-instagram"></i></a>
-                            <a href="https://facebook.com/nutriherbal" target="_blank" class="text-white ms-2"><i
-                                class="fa-brands fa-facebook"></i></a>
-                        </div>
-                    </footer>
-
-
-</html >
+</html>
