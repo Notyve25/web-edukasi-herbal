@@ -207,6 +207,7 @@
         font-size: 0.95rem;
     }
 
+
     .cta-button {
         padding: 8px 20px;
         font-size: 0.85rem;
@@ -266,5 +267,4 @@
 .nutri-card .btn:hover {
     transform: scale(1.05);
 }
-
 
