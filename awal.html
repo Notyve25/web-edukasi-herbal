@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
-
     <style>
         .slider-dots {
             position: absolute;
@@ -77,6 +76,7 @@
             }
         }
 
+        /* Institusi Terkait */
         .institusi-section {
             margin-top: 48px;
             text-align: center;
@@ -98,7 +98,10 @@
         }
 
         .institusi-logo {
-            width: 70px;
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            padding: 8px;
             transition: transform 0.3s;
             filter: drop-shadow(0 4px 16px rgba(39, 174, 96, 0.12));
             border-radius: 12px;
@@ -113,7 +116,8 @@
 
         @media (max-width: 576px) {
             .institusi-logo {
-                width: 44px;
+                width: 50px;
+                height: 50px;
             }
 
             .institusi-logos {
@@ -121,6 +125,7 @@
             }
         }
 
+        /* WhatsApp Floating Button */
         .whatsapp-float {
             position: fixed;
             bottom: 24px;
@@ -143,6 +148,32 @@
             color: #fff;
         }
 
+        /* Back to Home Floating Button */
+        .back-home-float {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            z-index: 999;
+        }
+
+        .back-home-float a {
+            background: #28a745;
+            color: #fff;
+            font-size: 1.7rem;
+            padding: 10px 13px;
+            border-radius: 50%;
+            box-shadow: 0 4px 16px rgba(39, 174, 96, 0.2);
+            transition: background 0.2s, transform 0.2s;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .back-home-float a:hover {
+            background: #1e7e34;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
         /* Fitur utama */
         .fitur-section {
             margin-top: 48px;
@@ -159,12 +190,24 @@
             border-radius: 16px;
             box-shadow: 0 2px 8px #1ec3ff22;
             padding: 24px 16px;
-            transition: transform 0.2s;
+            transition: transform 0.2s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: #333;
         }
 
         .fitur-card:hover {
-            transform: scale(1.04);
-            box-shadow: 0 8px 24px #28a74533;
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 24px #28a74533;
+        }
+
+        a.text-decoration-none .fitur-card p {
+            color: #555;
+        }
+
+        a.text-decoration-none:hover {
+            color: initial;
         }
 
         /* Navbar css */
@@ -174,7 +217,7 @@
         }
 
         .navbar-brand:hover,
-        .nav-link::shadow {
+        .nav-link:hover {
             color: rgb(19, 20, 20) !important;
             box-shadow: 0 4px 8px rgba(19, 20, 20, 0.2) !important;
         }
@@ -184,12 +227,17 @@
             background-color: #28a745 !important;
         }
 
+        .dropdown-menu .dropdown-item {
+            color: #ffffff !important;
+        }
+
         .dropdown-item:hover {
-            color: #28a745 !important;
+            background-color: rgba(255, 255, 255, 0.08) !important;
+            color: #ffffff !important;
         }
 
         .dropdown-item:hover i {
-            color: #28a745 !important;
+            color: #ffffff !important;
         }
     </style>
 </head>
@@ -227,7 +275,6 @@
                             <li><a class="dropdown-item" href="grafik.html"><i class="fa-solid fa-chart-column"></i>
                                     Grafik</a>
                             </li>
-                            <li><a class="dropdown-item" href="form.html"><i class="fa-solid fa-file"></i> Formulir</a>
                             </li>
                         </ul>
                     </li>
@@ -273,35 +320,184 @@
             </div>
         </div>
         <div class="row justify-content-center g-4">
-            <div class="col-12 col-md-4">
-                <div class="fitur-card text-center h-100">
-                    <div class="fitur-icon"><i class="fa-solid fa-calculator"></i></div>
-                    <h5 class="fw-bold mb-2">Kalkulator Natrium</h5>
-                    <p>Menghitung kebutuhan natrium harian Anda secara mudah dan cepat.</p>
+            <!-- Kalkulator Natrium -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <a href="index.html" class="text-decoration-none">
+                    <div class="fitur-card text-center h-100">
+                        <div class="fitur-icon"><i class="fa-solid fa-calculator"></i></div>
+                        <h5 class="fw-bold mb-2">Kalkulator Sehat</h5>
+                        <p class="mb-0">Hitung kebutuhan kecukupan lemak dan natrium harian Anda dengan mudah dan cepat.</p>
+                    </div>
+                </a>
+            </div>
+            <!-- Video Edukasi -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <a href="vid.html" class="text-decoration-none">
+                    <div class="fitur-card text-center h-100">
+                        <div class="fitur-icon"><i class="fa-solid fa-video"></i></div>
+                        <h5 class="fw-bold mb-2">Video Edukasi</h5>
+                        <p class="mb-0">Video informatif tentang pola makan sehat dan hipertensi.</p>
+                    </div>
+                </a>
+            </div>
+            <!-- Grafik & Informasi -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <a href="grafik.html" class="text-decoration-none">
+                    <div class="fitur-card text-center h-100">
+                        <div class="fitur-icon"><i class="fa-solid fa-chart-column"></i></div>
+                        <h5 class="fw-bold mb-2">Grafik & Informasi</h5>
+                        <p class="mb-0">Grafik interaktif dan informasi penting seputar kesehatan.</p>
+                    </div>
+                </a>
+            </div>
+            <!-- Kalkulator Tekanan Darah -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <a href="index.html" class="text-decoration-none">
+                    <div class="fitur-card text-center h-100">
+                        <div class="fitur-icon"><i class="fa-solid fa-stethoscope"></i></div>
+                        <h5 class="fw-bold mb-2">Cek Tekanan Darah</h5>
+                        <p class="mb-0">Cek dan pantau kondisi tekanan darah Anda secara aktual.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang Kami Section -->
+    <section class="container tentang-kami-section animate__animated animate__fadeInUp">
+        <div class="row justify-content-center mb-4">
+            <div class="col-md-8 text-center">
+                <h3 class="fw-bold mb-2 text-success" style="font-size: 1.8rem;"><i class="fa-solid fa-info-circle"></i>
+                    Tentang Kami</h3>
+                <p class="text-muted" style="font-size: 1.1rem;">Mengenal lebih jauh tentang Nutri Herbal dan tim kami
+                </p>
+            </div>
+        </div>
+
+        <!-- Deskripsi Nutri Herbal -->
+        <div class="row align-items-center mb-5">
+            <div class="col-md-6 mb-4 mb-md-0">
+                <h4 class="fw-bold text-success mb-3">Apa itu Nutri Herbal plus?</h4>
+                <p style="font-size: 1.05rem; line-height: 1.8; color: #555;">
+                    <strong>Nutri Herbal</strong> adalah multi-platform edukasi cetak dan digital yang berdedikasi untuk
+                    meningkatkan kesadaran masyarakat tentang pentingnya dalam menjaga kesehatan. Kami percaya bahwa
+                    pencegahan adalah kunci utama dalam menjalani hidup yang sehat dan berkualitas.
+                </p>
+                <p style="font-size: 1.05rem; line-height: 1.8; color: #555;">
+                    Melalui video edukasi, informasi mendalam, dan kalkulator interaktif, kami membantu Anda memahami
+                    manfaat herbal dan cara penggunaannya secara tepat untuk mencegah penyakit kronis seperti
+                    hipertensi.
+                </p>
+            </div>
+            <div class="col-md-6">
+                <img src="https://images.pexels.com/photos/3962286/pexels-photo-3962286.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Nutri Herbal" class="img-fluid rounded-4" style="box-shadow: 0 8px 24px rgba(40, 167, 69, 0.2);">
+            </div>
+        </div>
+
+        <!-- Visi & Misi -->
+        <div class="row mb-5">
+            <div class="col-md-6 mb-4">
+                <div class="visi-misi-card">
+                    <div class="visi-misi-icon"><i class="fa-solid fa-eye"></i></div>
+                    <h5 class="fw-bold text-success mb-3">Visi Kami</h5>
+                    <p style="color: #555;">Menjadi platform edukasi terdepan dalam penyebaran pengetahuan tentang
+                        pencegahan penyakit kronis dan memberikan cara penanggulangannya di Indonesia.</p>
                 </div>
             </div>
-            <div class="col-12 col-md-4">
-                <div class="fitur-card text-center h-100">
-                    <div class="fitur-icon"><i class="fa-solid fa-video"></i></div>
-                    <h5 class="fw-bold mb-2">Video Edukasi</h5>
-                    <p>Video informatif tentang pola makan sehat dan pencegahan hipertensi.</p>
-                </div>
-            </div>
-            <div class="col-12 col-md-4">
-                <div class="fitur-card text-center h-100">
-                    <div class="fitur-icon"><i class="fa-solid fa-chart-column"></i></div>
-                    <h5 class="fw-bold mb-2">Grafik & Informasi</h5>
-                    <p>Grafik interaktif dan informasi penting seputar kesehatan.</p>
+            <div class="col-md-6 mb-4">
+                <div class="visi-misi-card">
+                    <div class="visi-misi-icon"><i class="fa-solid fa-bullseye"></i></div>
+                    <h5 class="fw-bold text-success mb-3">Misi Kami</h5>
+                    <p style="color: #555;">Memberdayakan masyarakat dengan pengetahuan kesehatan yang akurat, mudah
+                        dipahami, dan dapat diterapkan dalam kehidupan sehari-hari.</p>
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center g-4">
+
+        <!-- Tim Kami -->
+        <div class="row justify-content-center mb-4">
+            <div class="col-md-8 text-center">
+                <h4 class="fw-bold text-success mb-4"><i class="fa-solid fa-people-group"></i> Tim Kami</h4>
+                <p style="color: #555; font-size: 1.05rem;">Tim profesional yang berdedikasi untuk memberikan informasi
+                    kesehatan terbaik</p>
+            </div>
+        </div>
+
+        <div class="row justify-content-center g-4 mb-5">
+            <!-- Anggota Tim 1 -->
             <div class="col-12 col-md-4">
-                <div class="fitur-card text-center h-100">
-                    <div class="fitur-icon"><i class="fa-solid fa-stethoscope"></i></div>
-                    <h5 class="fw-bold mb-2">Kalkulator cek tekanan darah</h5>
-                    <p>Menghitung dan cek kondisi tekanan darah anda secara aktual.</p>
+                <div class="team-card text-center">
+                    <div class="team-image-wrapper">
+                        <img src="ibu.tri.jpg" alt=" ahli bidang Gizi masyarakat" class="team-image">
+                    </div>
+                    <h5 class="fw-bold mt-3 mb-1 text-success">Prof. Dr. Tri Siswati, SKM, M.Kes.</h5>
+                    <p class="text-muted mb-2">Ahli bidang kesehatan Masyarakat</p>
+                    <p style="font-size: 0.95rem; color: #666;">Dosen Spesialis kesehatan Masyarakat dengan pengalaman
+                        15+ tahun dalam bidang kesehatan.</p>
+                    <div class="team-social">
+                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
                 </div>
+            </div>
+
+            <!-- Anggota Tim 2 -->
+            <div class="col-12 col-md-4">
+                <div class="team-card text-center">
+                    <div class="team-image-wrapper">
+                        <img src="joko.jpg" alt="ahli gizi bidang pangan" class="team-image">
+                    </div>
+                    <h5 class="fw-bold mt-3 mb-1 text-success">Joko Susilo SKM, M.Kes. </h5>
+                    <p class="text-muted mb-2">Ahli Gizi spesialis Bidang Pangan</p>
+                    <p style="font-size: 0.95rem; color: #666;">Dosen Spesialis ahli gizi bidang pangan berpengalaman
+                        lebih dari 15 tahun dibidang pangan.</p>
+                    <div class="team-social">
+                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Anggota Tim 3 -->
+            <div class="col-12 col-md-4">
+                <div class="team-card text-center">
+                    <div class="team-image-wrapper">
+                        <img src="24de57a6-5c00-4a91-948c-e576be009f90.png" alt="Dr. Praktisi Kesehatan"
+                            class="team-image">
+                    </div>
+                    <h5 class="fw-bold mt-3 mb-1 text-success">Noval Yahya</h5>
+                    <p class="text-muted mb-2">Mahasiswa jurusan gizi Poltekkes kemenkes Yogyakarta</p>
+                    <p style="font-size: 0.95rem; color: #666;">Mahasiswa jurusan gizi Poltekkes kemenkes Yogyakarta
+                        dengan pengalaman dalam promosi kesehatan.</p>
+                    <div class="team-social">
+                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mengapa Percaya Kami -->
+        <div class="row justify-content-center mb-4">
+            <div class="col-md-10">
+                <div class="trust-card">
+                    <h5 class="fw-bold text-success mb-3"><i class="fa-solid fa-shield-check"></i> Mengapa Percaya Kami?
+                    </h5>
+                    <ul style="list-style: none; padding: 0;">
+                        <li class="mb-2"><i class="fa-solid fa-check-circle text-success"></i> <strong>Berbasis Riset
+                                Ilmiah</strong> - Semua informasi didukung oleh penelitian dan studi ilmiah terkini</li>
+                        <li class="mb-2"><i class="fa-solid fa-check-circle text-success"></i> <strong>Tim
+                                Profesional</strong> - Didampingi oleh ahli gizi dan ahli kesehatan masyarakat
+                            bersertifikat</li>
+                        <li class="mb-2"><i class="fa-solid fa-check-circle text-success"></i> <strong>Konten
+                                Akurat</strong> - Informasi diverifikasi dan diperbarui secara berkala</li>
+                        <li class="mb-2"><i class="fa-solid fa-check-circle text-success"></i> <strong>Edukasi
+                                Berkelanjutan</strong> - Kami terus belajar dan mengembangkan konten terbaru untuk Anda
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Instansi Terkait -->
@@ -311,14 +507,20 @@
             <img class="institusi-logo"
                 src="https://kemkes.go.id/app_asset/image_content/167420049363ca45ad438f30.09191866.png" alt="Kemenkes"
                 title="Kementerian Kesehatan RI">
-            <img class="institusi-logo" src="https://labkesling.poltekkesjogja.ac.id/images/logopolkesyoo.webp"
-                alt="Poltekkes Jogja" title="Poltekkes Jogja">
+            <img class="institusi-logo" src="pky-image.png" alt="Poltekkes Jogja" title="Poltekkes Jogja">
             <img class="institusi-logo"
                 src="https://images.seeklogo.com/logo-png/39/1/puskesmas-logo-png_seeklogo-394834.png" alt="Puskesmas"
                 title="Puskesmas">
         </div>
     </main>
 
+
+    <!-- Back to Home Floating Button -->
+    <div class="back-home-float">
+        <a href="awal.html" title="Kembali ke Beranda">
+            <i class="fa-solid fa-house"></i>
+        </a>
+    </div>
 
     <!-- WhatsApp Floating Button -->
     <div class="whatsapp-float">
@@ -355,50 +557,36 @@
     </script>
     <!-- Slider Script dengan Dots -->
     <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll(".slide");
-        const dotsContainer = document.querySelector('.slider-dots');
+        (function () {
+            let currentSlide = 0;
+            const slides = document.querySelectorAll(".slide");
+            const dotsContainer = document.querySelector('.slider-dots');
 
-        // Buat dots
-        slides.forEach((_, idx) => {
-            const dot = document.createElement('div');
-            dot.classList.add('slider-dot');
-            if (idx === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => showSlide(idx));
-            dotsContainer.appendChild(dot);
-        });
-        const dots = document.querySelectorAll('.slider-dot');
+            if (!slides.length || !dotsContainer) return;
 
-        function showSlide(idx) {
-            slides[currentSlide].classList.remove('active');
-            dots[currentSlide].classList.remove('active');
-            currentSlide = idx;
-            slides[currentSlide].classList.add('active');
-            dots[currentSlide].classList.add('active');
-        }
+            // Buat dots
+            slides.forEach((_, idx) => {
+                const dot = document.createElement('div');
+                dot.classList.add('slider-dot');
+                if (idx === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => showSlide(idx));
+                dotsContainer.appendChild(dot);
+            });
+            const dots = document.querySelectorAll('.slider-dot');
 
-        setInterval(() => {
-            let nextSlide = (currentSlide + 1) % slides.length;
-            showSlide(nextSlide);
-        }, 5000);
-    </script>
+            function showSlide(idx) {
+                slides[currentSlide].classList.remove('active');
+                dots[currentSlide].classList.remove('active');
+                currentSlide = idx;
+                slides[currentSlide].classList.add('active');
+                dots[currentSlide].classList.add('active');
+            }
 
-    <!-- script untuk transisi halaman -->
-    <script>
-        document.getElementById("btn-jelajahi-video").addEventListener("click", function (e) {
-            e.preventDefault();
-            document.getElementById("main-body").classList.add("fade-out");
-            setTimeout(function () {
-                window.location.href = "vid.html";
-            }, 600);
-        });
-        document.getElementById("btn-jelajahi-informasi").addEventListener("click", function (e) {
-            e.preventDefault();
-            document.getElementById("main-body").classList.add("fade-out");
-            setTimeout(function () {
-                window.location.href = "index.html";
-            }, 600);
-        });
+            setInterval(() => {
+                let nextSlide = (currentSlide + 1) % slides.length;
+                showSlide(nextSlide);
+            }, 5000);
+        })();
     </script>
 </body>
 

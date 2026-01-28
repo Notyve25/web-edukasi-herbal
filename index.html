@@ -12,6 +12,32 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <style>
+        /* Back to Home Floating Button */
+        .back-home-float {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            z-index: 999;
+        }
+
+        .back-home-float a {
+            background: #28a745;
+            color: #fff;
+            font-size: 1.7rem;
+            padding: 10px 13px;
+            border-radius: 50%;
+            box-shadow: 0 4px 16px rgba(39, 174, 96, 0.2);
+            transition: background 0.2s, transform 0.2s;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .back-home-float a:hover {
+            background: #1e7e34;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
         body {
             background: #f8f9f9;
         }
@@ -164,7 +190,8 @@
         }
 
         .akg-card .card-body {
-            padding: 20px; /* samakan dengan cek-card */
+            padding: 20px;
+            /* samakan dengan cek-card */
         }
 
         /* AKG: header & tip khusus usia 30-50 */
@@ -385,7 +412,8 @@
         }
 
         .akg-card .card-body {
-            padding: 20px; /* samakan dengan cek-card */
+            padding: 20px;
+            /* samakan dengan cek-card */
         }
 
         /* tombol & spinner */
@@ -447,8 +475,6 @@
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="grafik.html"><i class="fa-solid fa-chart-column"></i>
                                     Grafik</a>
-                            </li>
-                            <li><a class="dropdown-item" href="form.html"><i class="fa-solid fa-file"></i> Formulir</a>
                             </li>
                         </ul>
                     </li>
@@ -568,7 +594,8 @@
                 </h2>
                 <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        <strong>Minuman herbal</strong> seperti air rebusan daun seledri,jus semangka,jus mentimun dan jus wortel + belimbing dapat membantu
+                        <strong>Minuman herbal</strong> seperti air rebusan daun seledri,jus semangka,jus mentimun dan
+                        jus wortel + belimbing dapat membantu
                         menurunkan tekanan darah secara alami. Konsumsi secara rutin dan konsultasikan dengan tenaga
                         kesehatan sebelum memulai terapi herbal.
                     </div>
@@ -585,7 +612,8 @@
                         </div>
                         <div>
                             <h4 class="mb-0">Kalkulator AKG Natrium</h4>
-                            <div class="small-muted">Masukkan usia dan jenis kelamin untuk melihat rekomendasi kebutuhan natrium dan setara konsumsi garam.</div>
+                            <div class="small-muted">Masukkan usia dan jenis kelamin untuk melihat rekomendasi kebutuhan
+                                natrium dan setara konsumsi garam.</div>
                         </div>
                     </div>
 
@@ -617,7 +645,8 @@
 
                     <div id="akgTip" class="akg-tip d-none mt-3" role="note" aria-hidden="true">
                         <i class="fa-solid fa-lightbulb me-2"></i>
-                        <div><strong>Tips 30–50 th:</strong> Kurangi garam, jaga berat badan, dan lakukan aktivitas fisik minimal 30 menit/hari.</div>
+                        <div><strong>Tips 30–50 th:</strong> Kurangi garam, jaga berat badan, dan lakukan aktivitas
+                            fisik minimal 30 menit/hari.</div>
                     </div>
 
                     <div id="akgResultWrap" style="margin-top:16px; display:none;">
@@ -628,6 +657,46 @@
         </section>
         <!-- End Kalkulator Natrium Harian -->
 
+        <!-- Kalkulator Kebutuhan Lemak Harian -->
+        <section class="my-4">
+            <div class="card akg-card">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-2">
+                        <div class="me-2" style="font-size:1.35rem;color:var(--brand)"><i class="fa-solid fa-bacon"></i>
+                        </div>
+                        <div>
+                            <h4 class="mb-0">Kalkulator Kebutuhan Lemak Harian</h4>
+                            <div class="small-muted">Hitung Angka Kecukupan Gizi (AKG) Lemak harian Anda.</div>
+                        </div>
+                    </div>
+
+                    <div class="row g-2">
+                        <div class="col-md-6">
+                            <label for="usiaLemak">Usia (tahun)</label>
+                            <input type="number" id="usiaLemak" class="form-control" placeholder="Masukkan usia"
+                                min="10">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="jkLemak">Jenis Kelamin</label>
+                            <select id="jkLemak" class="form-select">
+                                <option value="L">Laki-laki</option>
+                                <option value="P">Perempuan</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="d-flex gap-2 mt-3">
+                        <button class="btn btn-cek flex-fill" onclick="hitungLemak()">
+                            <span>Hitung Kebutuhan Lemak</span>
+                        </button>
+                        <button class="btn btn-outline-secondary" onclick="resetLemak()">Reset</button>
+                    </div>
+
+                    <div id="hasilLemak" class="result mt-3" role="status"></div>
+                </div>
+            </div>
+        </section>
+        <!-- End Kalkulator Kebutuhan Lemak Harian -->
 
         <!-- Cek Tekanan Darah (section terpisah) -->
         <section class="my-4">
@@ -667,6 +736,13 @@
             </div>
         </section>
     </main>
+
+    <!-- Back to Home Floating Button -->
+    <div class="back-home-float">
+        <a href="awal.html" title="Kembali ke Beranda">
+            <i class="fa-solid fa-house"></i>
+        </a>
+    </div>
 
     <!-- WhatsApp Floating Button -->
     <div class="whatsapp-float">
@@ -819,6 +895,100 @@
             });
         })();
     </script>
+    <!-- End Kalkulator garam -->
+
+    <!-- Kalkulator Lemak Script -->
+    <script>
+        const AKG_LEMAK = {
+            L: [
+                { umurMin: 10, umurMax: 12, lemak: 65 },
+                { umurMin: 13, umurMax: 15, lemak: 80 },
+                { umurMin: 16, umurMax: 18, lemak: 85 },
+                { umurMin: 19, umurMax: 29, lemak: 75 },
+                { umurMin: 30, umurMax: 49, lemak: 70 },
+                { umurMin: 50, umurMax: 64, lemak: 60 },
+                { umurMin: 65, umurMax: 80, lemak: 50 },
+                { umurMin: 80, umurMax: 120, lemak: 50 },
+            ],
+            P: [
+                { umurMin: 10, umurMax: 12, lemak: 65 },
+                { umurMin: 13, umurMax: 15, lemak: 70 },
+                { umurMin: 16, umurMax: 18, lemak: 70 },
+                { umurMin: 19, umurMax: 29, lemak: 65 },
+                { umurMin: 30, umurMax: 49, lemak: 60 },
+                { umurMin: 50, umurMax: 64, lemak: 55 },
+                { umurMin: 65, umurMax: 80, lemak: 45 },
+                { umurMin: 80, umurMax: 120, lemak: 45 },
+            ]
+        };
+
+
+        function hitungLemak() {
+            const usia = parseInt(document.getElementById("usiaLemak").value);
+            const jk = document.getElementById("jkLemak").value;
+            const hasil = document.getElementById("hasilLemak");
+
+            if (!usia || usia < 10 || !jk) {
+                hasil.className = 'result danger show';
+                hasil.innerHTML = '⚠️ Harap isi usia dan jenis kelamin dengan benar.';
+                return;
+            }
+
+            const data = AKG_LEMAK[jk];
+            const lemakData = data.find(item => usia >= item.umurMin && usia <= item.umurMax);
+
+            if (!lemakData) {
+                hasil.className = 'result warning show';
+                hasil.innerHTML = 'Data AKG tidak ditemukan untuk usia ini.';
+                return;
+            }
+
+            const lemak = lemakData.lemak;
+
+            // Gunakan fungsi konversiSendokMakan, dengan fallback jika nilai di luar jangkauan fungsi
+            let sendokDisplay;
+            const konversiHasil = konversiSendokMakan(lemak);
+            if (konversiHasil) {
+                sendokDisplay = konversiHasil;
+            } else {
+                // Fallback untuk nilai > 75g, berdasarkan ~15g per sendok makan
+                sendokDisplay = `sekitar ${Math.round(lemak / 15)} sendok makan`;
+            }
+
+            hasil.className = 'result safe show';
+            hasil.innerHTML = `
+                <div style="display:flex;gap:12px;align-items:center;justify-content:space-between;">
+                    <div><strong>Kelompok Usia:</strong> ${lemakData.umurMin}–${lemakData.umurMax} thn &nbsp; <small class="text-muted">(${jk === 'L' ? 'Laki-laki' : 'Perempuan'})</small></div>
+                    <div><small class="text-muted">Sumber: AKG — Permenkes RI No.28/2019</small></div>
+                </div>
+                <hr style="margin:.5rem 0;">
+                <div><strong>Kebutuhan Lemak Harian:</strong> <span style="color:#28a745">${lemak} gram</span></div>
+                <div><strong>Setara Minyak/Lemak:</strong> ± ${sendokDisplay}</div>
+            `;
+        }
+
+        function resetLemak() {
+            document.getElementById("usiaLemak").value = "";
+            document.getElementById("jkLemak").selectedIndex = 0;
+            const hasil = document.getElementById("hasilLemak");
+            hasil.className = "result";
+            hasil.innerHTML = "";
+        }
+
+        function konversiSendokMakan(gram) {
+            if (gram <= 7.5) return "½ sendok makan";
+            if (gram <= 11.25) return "¾ sendok makan";
+            if (gram <= 15) return "1 sendok makan";
+            if (gram <= 22.5) return "1½ sendok makan";
+            if (gram <= 30) return "2 sendok makan";
+            if (gram <= 37.5) return "2½ sendok makan";
+            if (gram <= 45) return "3 sendok makan";
+            if (gram <= 52.5) return "3½ sendok makan";
+            if (gram <= 60) return "4 sendok makan";
+            if (gram <= 75) return "5 sendok makan";
+        }
+    </script>
+    <!-- End Kalkulator Lemak -->
 
     <!-- Cek Tekanan Darah: skrip diperbarui, validasi + focus on open + clear on close -->
     <script>
@@ -873,11 +1043,11 @@
                         showResult('normal', '✅ <b>Normal</b><br>Tekanan darah Anda normal. Pertahankan pola hidup sehat, pola makan yang baik agar tetap tekanan darah tetap terjaga.');
                         return;
                     }
-                    if (sbp >= 120 && sbp <= 129 && dbp < 80) {
+                    if (sbp >= 120 && sbp <= 129 && dbp <= 89) {
                         showResult('elevated', '⚠️ <b>Elevated</b><br>Berisiko menuju hipertensi. Kurangi konsumsi garam, perbaiki pola makan, olahraga secara teratur, dan kelola stres.');
                         return;
                     }
-                    if ((sbp >= 130 && sbp <= 139) || (dbp >= 80 && dbp <= 89)) {
+                    if ((sbp >= 130 && sbp <= 139) || ( dbp >= 89)) {
                         showResult('stage1', '🟠 <b>Hipertensi Stage 1</b><br>wajib melakukan perubahan gaya hidup dan konsultasi kepada tenaga kesehatan.');
                         return;
                     }
@@ -906,6 +1076,7 @@
             });
         })();
     </script>
+    <!-- End Cek Tekanan Darah -->
 
     <!-- Footer -->
     <footer class="bg-success text-white text-center py-3 mt-5 animate__animated animate__fadeInUp">

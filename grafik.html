@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
     <style>
         body {
             background: linear-gradient(120deg, #1ec3ff 0%, #28a745 100%);
@@ -151,6 +152,32 @@
         .dropdown-item:hover i {
             color: #28a745 !important;
         }
+
+        /* Back to Home Floating Button */
+        .back-home-float {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            z-index: 999;
+        }
+
+        .back-home-float a {
+            background: #28a745;
+            color: #fff;
+            font-size: 1.7rem;
+            padding: 10px 13px;
+            border-radius: 50%;
+            box-shadow: 0 4px 16px rgba(39, 174, 96, 0.2);
+            transition: background 0.2s, transform 0.2s;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .back-home-float a:hover {
+            background: #1e7e34;
+            color: #fff;
+            transform: scale(1.1);
+        }
     </style>
 </head>
 
@@ -188,9 +215,6 @@
                             <li><a class="dropdown-item" href="grafik.html"><i class="fa-solid fa-chart-column"></i>
                                     Grafik</a>
                             </li>
-                            <li><a class="dropdown-item" href="form.html"><i class="fa-solid fa-file"></i> Formulir</a>
-                            </li>
-                        </ul>
                     </li>
                 </ul>
             </div>
@@ -238,8 +262,9 @@
                     rel="noopener noreferrer">yogyakarta.bps.go.id</a>
             </i>
             <i>
-                Sumber data: <a href="https://smartdinkes.slemankab.go.id/backend-v4/hipertensi/dashboard?pid=P3404130201&t=202601&flaged=all&area=puskesmas" target="_blank"
-                    rel="noopener noreferrer">smartdinkes.slemankab.go.id</a>
+                Sumber data: <a
+                    href="https://smartdinkes.slemankab.go.id/backend-v4/hipertensi/dashboard?pid=P3404130201&t=202601&flaged=all&area=puskesmas"
+                    target="_blank" rel="noopener noreferrer">smartdinkes.slemankab.go.id</a>
             </i>
         </div>
     </main>
@@ -340,6 +365,13 @@
         var jumlahtenagagizichart = new ApexCharts(document.querySelector("#chart-jumlah-tenaga-gizi"), jumlahtenagagizioptions);
         jumlahtenagagizichart.render();
     </script>
+
+    <!-- Back to Home Floating Button -->
+    <div class="back-home-float">
+        <a href="awal.html" title="Kembali ke Beranda">
+            <i class="fa-solid fa-house"></i>
+        </a>
+    </div>
 </body>
 
 </html>
