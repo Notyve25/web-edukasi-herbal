@@ -1039,10 +1039,10 @@
                         showResult('stage1', '🟠 <b>Hipertensi Stage 1</b><br>wajib melakukan perubahan gaya hidup dan konsultasi kepada tenaga kesehatan.');
                     } else if ((sbp >= 120 && sbp <= 129) && (dbp < 80)) { // Elevated
                         showResult('elevated', '⚠️ <b>Elevated</b><br>Berisiko menuju hipertensi. Kurangi konsumsi garam, perbaiki pola makan, olahraga secara teratur, dan kelola stres.');
-                    } else if (sbp < 120 && dbp < 80) { // Normal
-                        showResult('normal', '✅ <b>Normal</b><br>Tekanan darah Anda normal. Pertahankan pola hidup sehat, pola makan yang baik agar tetap tekanan darah tetap terjaga.');
                     } else if (sbp < 90 || dbp < 60) { // Hipotensi
                         showResult('hypotension', '🔵 <b>Hipotensi</b><br>Tekanan darah rendah atau hipotensi. Jika gejala muncul, konsultasikan tenaga kesehatan.');
+                    } else if (sbp < 120 && dbp < 80) { // Normal
+                        showResult('normal', '✅ <b>Normal</b><br>Tekanan darah Anda normal. Pertahankan pola hidup sehat, pola makan yang baik agar tetap tekanan darah tetap terjaga.');
                     } else {
                         // Fallback untuk kasus yang mungkin tidak tertangani, meskipun seharusnya tidak terjadi dengan logika baru.
                         showResult('', '⚠️ Tidak dapat menentukan kategori. Harap periksa kembali nilai yang Anda masukkan.');
